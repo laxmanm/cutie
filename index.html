@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Real-time Dashboard</title>
+    <link rel="stylesheet",type="text/css" href="css/styles.css"/>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script 
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
+    </script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.2.2/underscore-min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.5.3/backbone-min.js"></script>
+
+    <script src="js/models.js"></script>
+    <script src="js/collections.js"></script>
+    <script src="js/views.js"></script>
+    <script src="js/router.js"></script>
+
+    <script>
+      $(function() {
+        RecordsView.initialize('http://localhost:8000/');
+        alert('x');
+        $( "#sortable" ).sortable({
+          revert: true
+        });
+        $( "#draggable" ).draggable({
+          connectToSortable: "#sortable",
+          helper: "clone",
+          revert: "invalid"
+        });
+        $( "ul, li" ).disableSelection();
+      });
+    </script>
+  </head>
+  <body>
+    <div class="widget">
+      <ul id="sortable" class="basket">
+        <li class="orange narrow tall" id="box-1"></li>
+        <li class="cyan narrow small" id="box-2"></li>
+        <li class="blue narrow small" id="box-3"></li>
+        <li class="yellow narrow small" id="box-4"></li>
+        <li class="purple wide small" id="box-5"></li>
+        <li class="green narrow small" id="box-6"></li>
+      </ul>
+    </div>
+    <script type="text/template" id="list_template">
+      <div class="box-table">
+        <div class="box-table-left"><%= name %></div>
+        <div class="box-table-right"><%= amount %></div>
+        <div class="clear"/>
+      </div>
+    </script>
+  </body>
+</html>

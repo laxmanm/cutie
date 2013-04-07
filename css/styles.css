@@ -1,0 +1,23 @@
+body { background-color : #000; color: #fff; font-family: Arial; }
+ul.basket { list-style-type: none; margin: 0; padding: 0; }
+ul.basket li { margin: 5px; padding: 20px; float: left;
+  color: #fff; font-size: 16px; cursor: pointer; text-align: center; }
+
+.widget { margin: auto; width: 1120px; }
+
+.narrow { width: 230px; }
+.wide { width: 510px; }
+
+.tall { height: 630px; }
+.small { height: 290px; }
+
+.orange { background-color:#f46634; }
+.cyan { background-color:#2dbbb4; }
+.blue { background-color:#00b0c6; }
+.yellow { background-color:#ff9500; }
+.purple { background-color:#a04573; }
+.green { background-color:#94c140; }
+
+.clear {clear: both;}
+.box-table-left { float: left; }
+.box-table-right { float: right; }

@@ -4,36 +4,30 @@ var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 var mysql = require("mysql");
 
+var connection = mysql.createConnection({ 
+   user: "root", 
+   password: "james", 
+   database: "dashboard"
+}); 
+
 server.listen(8000);
 
 var total = 0;
 var previous = 0;
 
-app.use("/", express.static(__dirname + '/public'));
+app.use("/", express.static(__dirname));
 io.sockets.on('connection', doAction);
 
 function doAction(){
 	setTimeout(function(){
-		var connection = mysql.createConnection({ 
-		   user: "root", 
-		   password: "james", 
-		   database: "dashboard"
-		}); 
-		connection.query('select * from sales',
+		connection.query('select name, amount from sales',
 		function(err, result, fields) {
 		    if (err) throw err;
 		    else {
-		    	total = 0;
-		        for (var i in result) {
-		            var user = result[i];
-		            total += user.amount;
-		        }
+				io.sockets.emit('new', { msg: JSON.stringify(result) });
 		    }
 		});
-		if(total!=previous){
-			io.sockets.emit('new', { msg: total });
-			previous = total;
-		}
+		connection.destroy;
 		
 		doAction();
 	}, 1000);
