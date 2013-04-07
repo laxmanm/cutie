@@ -4,9 +4,10 @@ var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 var mysql = require("mysql");
 
-var total = 0;
-
 server.listen(8000);
+
+var total = 0;
+var previous = 0;
 
 app.use("/", express.static(__dirname + '/public'));
 io.sockets.on('connection', doAction);
@@ -29,10 +30,11 @@ function doAction(){
 		        }
 		    }
 		});
-		io.sockets.emit('new', {
-			msg: total
-		});
+		if(total!=previous){
+			io.sockets.emit('new', { msg: total });
+			previous = total;
+		}
 		
 		doAction();
-	}, 5000);
+	}, 1000);
 }

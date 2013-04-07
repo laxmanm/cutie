@@ -1,29 +1,20 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title>Simple Chat</title>
+    <title>Dashboard skeleton</title>
     <link rel="stylesheet",type="text/css" href="styles.css"/>
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script 
       type="text/javascript"
       src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js">
     </script>
-    <script src="chat.js" type="text/javascript"></script>
+    <script src="script.js" type="text/javascript"></script>
   </head>
   <body>
-    <div id="wrapper">
-      <h1>Simple Chat</h1>
-      <div id="messages"></div>
-      <div class="nic">
-        Your Name
-        <input id="name" name="name" type="text"/>
-      </div>
-      <textarea id="message"></textarea>
-      <input id="send" type="submit" value="Send"/>
-    </div>
+    <div id="widget"></div>
     <script type="text/javascript">
       $(document).ready(function() {
-        Chat.initialize('http://172.16.11.18:8000/');
+        Dashboard.initialize('http://localhost:8000/');
       });
     </script>
   </body>

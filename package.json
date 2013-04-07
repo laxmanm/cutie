@@ -1,9 +1,9 @@
 {
-  "name": "indy-workshop",
-  "version": "0.0.0",
-  "description": "Simple Project to demostrate Node.js",
+  "name": "Cutie Dashboard",
+  "version": "0.0.1",
+  "description": "Real time dashboard PoC",
   "main": "app.js",
-  "author": "Richard Key",
+  "author": "James Singh",
   "license": "MIT",
   "dependencies" : {
     "express": "~3.0.0"
