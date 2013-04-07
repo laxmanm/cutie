@@ -14,14 +14,14 @@ How to use
 	git clone git@github.com:james-singh/cutie.git  
 	cd cutie  
 
-	Execute the database script to create the `sales` table with name and sales amount fields. This sql has few insert queries included. Remember to update the database name, mysql user and password in app.js file.
+Execute the database script to create the `sales` table with name and sales amount fields. This sql has few insert queries included. Remember to update the database name, mysql user and password in app.js file.
 
 	node app.js  
 
-	The application then runs in port 8000. To start using it, open the following link in your browser:  
-	http://localhost:8000
+The application then runs in port 8000. To start using it, open the following link in your browser:  
+http://localhost:8000
 
-	Initially this will display total sales made. As the amount of sales vary (you can use some update queries), the same will display updated in the browser as well without having to refresh it.
+Initially this will display total sales made. As the amount of sales vary (you can use some update queries), the same will display updated in the browser as well without having to refresh it.
 
 Contribute
 ----------
