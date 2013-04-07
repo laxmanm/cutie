@@ -40,20 +40,6 @@
       $('#messages')
         .append(msg)
         .animate({scrollTop: $('#messages').prop('scrollHeight')}, 0);
-    },
- 
-    //Sends a message to the server,
-    //then clears it from the textarea
-    send : function() {
-      this.socket.emit('msg', {
-        name: $('#name').val(),
-        msg: $('#message').val()
-      });
-
-      $('#message').val('');
-
-      return false;
-
     }
   };
 }());
